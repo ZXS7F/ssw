@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الإسلامي 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Amiri', serif;
+        }
+        
+        body {
+            background-color: #f8f4e6;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-left: 15px;
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background-color: #004d40;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 40px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            display: inline-block;
+            padding: 0 20px;
+            color: #004d40;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-header h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100%;
+            height: 3px;
+            background-color: #004d40;
+        }
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-body ul {
+            list-style-type: none;
+            padding-right: 10px;
+        }
+        
+        .card-body ul li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .card-body ul li::before {
+            content: '◉';
+            color: #004d40;
+            position: absolute;
+            right: -20px;
+        }
+        
+        .card-body ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .card-body ul li a:hover {
+            color: #004d40;
+        }
+        
+        /* Lesson Content Styles */
+        .lesson-container {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .lesson-header {
+            border-bottom: 2px solid #004d40;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .lesson-header h3 {
+            color: #004d40;
+            font-size: 1.8rem;
+        }
+        
+        .lesson-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .lesson-content p {
+            margin-bottom: 15px;
+        }
+        
+        .lesson-content h4 {
+            color: #004d40;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            padding-right: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 10px;
+        }
+        
+        .media-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .media-container img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background-color: #004d40;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: #00796b;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 0 20px 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-pattern"></div>
+        <div class="container">
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffeb3b" />
+                            <stop offset="100%" stop-color="#ffc107" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="#004d40" />
+                    <path d="M100 20 L100 180" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    <path d="M20 100 L180 100" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    <path d="M37 37 L163 163" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    <path d="M163 37 L37 163" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="url(#logoGradient)" stroke-width="5" />
+                    <circle cx="100" cy="100" r="50" fill="none" stroke="url(#logoGradient)" stroke-width="3" />
+                    <path d="M100 40 L100 70 L115 85 L100 100 L115 115 L100 130 L100 160" fill="none" stroke="url(#logoGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M60 100 L85 100 M115 100 L140 100" fill="none" stroke="url(#logoGradient)" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <h1 class="site-title">الموقع الإسلامي 2</h1>
+            </div>
+            <h2 class="site-subtitle">مصدرك للتعلم الإسلامي الشامل</h2>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#fiqh">الفقه</a></li>
+                <li><a href="#hadith">الحديث</a></li>
+                <li><a href="#tawhid">التوحيد</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="fiqh">
+            <div class="section-header">
+                <h2>قسم الفقه</h2>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>دروس الفقه</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#" onclick="showLesson('fiqh-1'); return false;">محظورات الإحرام</a></li>
+                            <li><a href="#" onclick="showLesson('fiqh-2'); return false;">العمرة والحج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- محظورات الإحرام -->
+            <div id="fiqh-1" class="lesson-container">
+                <div class="lesson-header">
+                    <h3>محظورات الإحرام</h3>
+                </div>
+                <div class="lesson-content">
+                    <p>محظورات الإحرام هي الأمور التي يجب على المسلم الامتناع عنها أثناء فترة إحرامه للحج أو العمرة. وهي أمور نهى الشرع عنها لحكمة عظيمة تتعلق بطهارة النفس وتجردها من ملذات الدنيا وزينتها، وإقبالها على الله تعالى بالطاعة والعبادة.</p>
+                    
+                    <h4>أهم محظورات الإحرام:</h4>
+                    <ol>
+                        <li><strong>حلق الشعر أو قصه:</strong> يحرم على المحرم حلق شعر رأسه أو جسده أو قصه أو نتفه أو إزالته بأي وسيلة كانت.</li>
+                        <li><strong>تقليم الأظافر:</strong> يحرم على المحرم قص أظافر يديه أو رجليه.</li>
+                        <li><strong>الطيب:</strong> يحرم على المحرم استعمال الطيب في بدنه أو ثوبه بعد الإحرام.</li>
+                        <li><strong>لبس المخيط للرجال:</strong> يحرم على الرجل المحرم لبس المخيط مما فُصل على قدر البدن أو العضو.</li>
+                        <li><strong>تغطية الرأس للرجال:</strong> يحرم على الرجل المحرم تغطية رأسه بملاصق كالغترة والطاقية والعمامة.</li>
+                        <li><strong>لبس القفازين للمرأة:</strong> يحرم على المرأة المحرمة لبس القفازين.</li>
+                        <li><strong>النقاب والبرقع للمرأة:</strong> يحرم على المرأة المحرمة لبس النقاب والبرقع.</li>
+                        <li><strong>قتل صيد البر:</strong> يحرم على المحرم قتل صيد البر أو الإعانة على صيده.</li>
+                        <li><strong>عقد النكاح:</strong> يحرم على المحرم الزواج أو تزويج غيره أو الخطبة.</li>
+                        <li><strong>الجماع ومقدماته:</strong> يحرم الجماع ومقدماته القولية والفعلية على المحرم.</li>
+                    </ol>
+                    
+                    <div class="media-container">
+                        <img src="/api/placeholder/600/400" alt="صورة توضيحية لملابس الإحرام" />
+                    </div>
+                    
+                    <h4>ما يترتب على فعل المحظورات:</h4>
+                    <p>إذا ارتكب المحرم أحد هذه المحظورات، فإنه يجب عليه أن يتوب إلى الله تعالى، ويلزمه الفدية حسب نوع المحظور:</p>
+                    <ul>
+                        <li><strong>التخيير بين ثلاثة أمور:</strong> صيام ثلاثة أيام، أو إطعام ستة مساكين، أو ذبح شاة - وذلك في محظورات مثل: حلق الشعر، وتقليم الأظافر، وتغطية الرأس للرجل، ولبس المخيط للرجل.</li>
+                        <li><strong>جزاء مثل ما قتل من النعم:</strong> في قتل الصيد البري.</li>
+                        <li><strong>فساد الحج:</strong> إذا وقع الجماع قبل التحلل الأول، فإنه يفسد الحج، ويجب إتمامه والقضاء من العام القادم، مع وجوب الكفارة وهي ذبح بدنة.</li>
+                    </ul>
+                    
+                    <h4>ما يباح للمحرم:</h4>
+                    <p>هناك بعض الأمور التي يباح للمحرم فعلها، منها:</p>
+                    <ul>
+                        <li>الاغتسال وغسل الرأس.</li>
+                        <li>تبديل ثياب الإحرام إذا اتسخت.</li>
+                        <li>لبس النعلين والخفين لمن لم يجد النعلين.</li>
+                        <li>التظلل بالمظلة أو سقف السيارة.</li>
+                        <li>شد الإزار وربطه بما يمنع سقوطه.</li>
+                    </ul>
+                    
+                    <a href="#fiqh" class="back-btn">العودة إلى قسم الفقه</a>
+                </div>
+            </div>
+            
+            <!-- العمرة والحج -->
+            <div id="fiqh-2" class="lesson-container">
+                <div class="lesson-header">
+                    <h3>العمرة والحج</h3>
+                </div>
+                <div class="lesson-content">
+                    <p>العمرة والحج من العبادات العظيمة في الإسلام، وهما ركنان أساسيان من أركان الإسلام. الحج فرض واجب مرة واحدة في العمر على المستطيع، أما العمرة فقد اختلف العلماء في حكمها بين الوجوب والاستحباب.</p>
+                    
+                    <h4>العمرة وأحكامها:</h4>
+                    <p>العمرة هي زيارة البيت الحرام للطواف به والسعي بين الصفا والمروة في أي وقت من العام. وأركان العمرة أربعة:</p>
+                    <ol>
+                        <li><strong>الإحرام:</strong> وهو نية الدخول في النسك مع التلبية.</li>
+                        <li><strong>الطواف:</strong> وهو الطواف حول الكعبة سبعة أشواط.</li>
+                        <li><strong>السعي:</strong> وهو السعي بين الصفا والمروة سبعة أشواط.</li>
+                        <li><strong>الحلق أو التقصير:</strong> وهو حلق شعر الرأس أو تقصيره للرجال، والتقصير للنساء.</li>
+                    </ol>
+                    
+                    <div class="media-container">
+                        <img src="/api/placeholder/600/400" alt="صورة توضيحية للطواف حول الكعبة" />
+                    </div>
+                    
+                    <h4>الحج وأركانه وواجباته:</h4>
+                    <p>الحج هو قصد البيت الحرام لأداء المناسك في وقت محدد من العام. وأركان الحج أربعة:</p>
+                    <ol>
+                        <li><strong>الإحرام:</strong> وهو نية الدخول في النسك مع التلبية.</li>
+                        <li><strong>الوقوف بعرفة:</strong> وهو الركن الأعظم للحج.</li>
+                        <li><strong>طواف الإفاضة:</strong> وهو الطواف الركن في الحج.</li>
+                        <li><strong>السعي بين الصفا والمروة:</strong> وهو السعي المشروع في الحج.</li>
+                    </ol>
+                    
+                    <h4>واجبات الحج:</h4>
+                    <ol>
+                        <li>الإحرام من الميقات.</li>
+                        <li>الوقوف بعرفة إلى غروب الشمس لمن وقف نهارًا.</li>
+                        <li>المبيت بمزدلفة ليلة النحر.</li>
+                        <li>المبيت بمنى ليالي أيام التشريق.</li>
+                        <li>رمي الجمرات الثلاث.</li>
+                        <li>الحلق أو التقصير.</li>
+                        <li>طواف الوداع.</li>
+                    </ol>
+                    
+                    <h4>أنواع النسك في الحج:</h4>
+                    <ol>
+                        <li><strong>التمتع:</strong> وهو أن يحرم بالعمرة في أشهر الحج، ويتحلل منها، ثم يحرم بالحج في نفس العام.</li>
+                        <li><strong>القِران:</strong> وهو أن يحرم بالعمرة والحج معاً، أو يحرم بالعمرة ثم يدخل عليها الحج قبل الشروع في طوافها.</li>
+                        <li><strong>الإفراد:</strong> وهو أن يحرم بالحج فقط.</li>
+                    </ol>
+                    
+                    <p>والأفضل من هذه الأنساك هو التمتع، ثم القران، ثم الإفراد، وعلى المتمتع والقارن الهدي.</p>
+                    
+                    <h4>فضل الحج والعمرة:</h4>
+                    <p>قال رسول الله صلى الله عليه وسلم: "العمرة إلى العمرة كفارة لما بينهما، والحج المبرور ليس له جزاء إلا الجنة".</p>
+                    
+                    <a href="#fiqh" class="back-btn">العودة إلى قسم الفقه</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hadith" style="margin-top: 60px;">
+            <div class="section-header">
+                <h2>قسم الحديث</h2>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>دروس الحديث</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#" onclick="showLesson('hadith-1'); return false;">الغيبة والنميمة</a></li>
+                            <li><a href="#" onclick="showLesson('hadith-2'); return false;">عاقبة الظلم</a></li>
+                            <li><a href="#" onclick="showLesson('hadith-3'); return false;">الغضب وكيفية معالجته</a></li>
+                            <li><a href="#" onclick="showLesson('hadith-4'); return false;">كبائر الذنوب</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الغيبة والنميمة -->
+            <div id="hadith-1" class="lesson-container">
+                <div class="lesson-header">
+                    <h3>الغيبة والنميمة</h3>
+                </div>
+                <div class="lesson-content">
+                    <p>الغيبة والنميمة من الآفات الخطيرة التي تهدد المجتمع الإسلامي وتزرع الفتنة والبغضاء بين المسلمين. وقد حذر النبي صلى الله عليه وسلم منهما تحذيراً شديداً.</p>
+                    
+                    <h4>تعريف الغيبة:</h4>
+                    <p>الغيبة هي ذكر المسلم أخاه بما يكره في غيابه. وقد عرّفها النبي صلى الله عليه وسلم بقوله: "أتدرون ما الغيبة؟" قالوا: الله ورسوله أعلم. قال: "ذكرك أخاك بما يكره". قيل: أفرأيت إن كان في أخي ما أقول؟ قال: "إن كان فيه ما تقول فقد اغتبته، وإن لم يكن فيه فقد بهته". رواه مسلم.</p>
+                    
+                    <h4>حكم الغيبة:</h4>
+                    <p>الغيبة من كبائر الذنوب، وقد شبهها الله تعالى بأكل لحم الأخ ميتاً، قال تعالى: {وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضًا أَيُحِبُّ أَحَدُكُمْ أَنْ يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا فَكَرِهْتُمُوهُ وَاتَّقُوا اللَّهَ إِنَّ اللَّهَ تَوَّابٌ رَحِيمٌ} [الحجرات: 12].</p>
+                    
+                    <div class="media-container">
+                        <img src="/api/placeholder/600/400" alt="صورة توضيحية لآفة الغيبة" />
+                    </div>
+                    
+                    <h4>تعريف النميمة:</h4>
+                    <p>النميمة هي نقل الكلام بين الناس على وجه الإفساد. وصورتها أن ينقل شخص كلاماً عن آخرين بقصد الإيقاع بينهم وإفساد العلاقة.</p>
+                    
+                    <h4>حكم النميمة:</h4>
+                    <p>النميمة من كبائر الذنوب، وقد ورد في الحديث: "لا يدخل الجنة نمام". متفق عليه.</p>
+                    
+                    <h4>أضرار الغيبة والنميمة:</h4>
+                    <ul>
+                        <li>إيذاء المسلمين وجرح مشاعرهم.</li>
+                        <li>زرع العداوة والبغضاء بين الناس.</li>
+                        <li>تفكيك المجتمع وإضعاف الروابط الاجتماعية.</li>
+                        <li>فقدان الثقة بين أفراد المجتمع.</li>
+                        <li>حرمان مرتكبهما من دخول
